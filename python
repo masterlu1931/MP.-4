@@ -1,0 +1,43 @@
+import matplotlib.pyplot as plt
+import numpy as np
+from math import pi
+a=float(input('Enter the initial position in meters: '))
+b=float(input('Enter the initial velocity in m/s: '))
+c=float(input('Enter the angle theta with respect to the x-axis: '))
+d=float(input('Enter the x-component of the acceleration in m/s^2: '))
+e=float(input('Enter the y-component of the acceleration in m/s^2): '))
+f=[a,b,c,d,e]
+for f in f:
+    
+    if e==0:
+        print('Error: vertical acceleration cannot be equal to 0')
+    x_vals=[]
+    y_vals=[]
+    v0x=b*np.cos(c*(pi/180))
+    v0y=b*np.sin(c*(pi/180))
+    t=0
+    x=0
+    y=a
+    delta=0.125
+    x_vals.append(x)
+    y_vals.append(y)
+    while (True):
+        t=t+delta
+        x=v0x*t+(0.5*d*(t*t))
+        y=v0y*t+(0.5*e*(t*t))+a
+        x_vals.append(x)
+        y_vals.append(y)
+        if y < delta:
+            break
+        plt.plot(x_vals,y_vals)
+        ax=plt.gca()
+        ax.set_ylim([0,max(y_vals)])
+        
+        plt.xlabel('x-axis')
+        plt.ylabel('y-axis')
+        plt.title('Projectile motion' )
+        plt.grid()
+        plt.show()
+
+
+    
