@@ -18,7 +18,7 @@ for f in f:
     t=0
     x=0
     y=a
-    delta=0.125
+    delta=0.0525
     x_vals.append(x)
     y_vals.append(y)
     while (True):
